@@ -1,6 +1,6 @@
 # Covid19-SouthKorea
 COVID-19 daily cases dashboard in South Korea 
-* Total daily cases as shown above
+* Total daily cases as the top part of a website
 * Daily cases visiable statistics via graph
 * Scraping Web Articles related 'COVID' keyword Using NewsAPI
 
