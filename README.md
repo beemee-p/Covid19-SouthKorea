@@ -4,7 +4,7 @@ COVID-19 daily cases dashboard in South Korea
 * Daily cases visiable statistics via graph
 * Scraping Web Articles related 'COVID' keyword Using NewsAPI
 
-Working in progress :wrench: (a mock-up page below)
+Working in progress :wrench: (as mock-up page below)
 
 ![image](https://user-images.githubusercontent.com/72956452/105278009-f8857180-5be7-11eb-8a48-da5dae66988f.png)
 ***
