@@ -17,34 +17,56 @@ const Contents = () => {
     }
     
     const makeData = (items =>{             
-      // 누적확진자 배열 
-      const arr = items.map(item =>{   
+      // 누적확진자 배열
+      const arr = items.map(item =>{             
         return item.Confirmed;
       });
-      console.log(arr);
+      console.log(arr);      
       
+      // 일별확진자 배열
       const curArr = new Array();
 
-      for(var i=1; i<arr.length; i++){ 
-        curArr[i] = arr[i] - arr[i-1]
+      for(var i in arr){ 
+        curArr[i] = arr[i] - arr[i-1];
       }
       console.log(curArr);
-         
+        
+      const labels = curArr.map(a =>{
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const date = currentDate.getDate();
+        
+        return a.year +'/'+ (a.month+1) + '/' + a.date;
+      });
+  
+      setconfirmedData({
+        labels,
+        datasets: [
+          {
+            label: "국내 일별 확진자",
+            backgroundColor: "salmon",
+            fill: false, // 그래프 색을 채우겠느냐
+            data: curArr.map(a => a) // 한줄짜리인경우 {return }을 안써도 된다.
+          }
+        ]  
+      });     
     })   
+    
 
     fetchEvents();   
 
-  });
+  })
 
   return (
     <section>
       <h2>국내 코로나 현황</h2>
       <div className="contents">
         <div>
-            <Bar data={confirmedData} options={
+            <Line data={confirmedData} options={
               {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},
               {legend:{display:true, position:"bottom"}}
-            }></Bar>
+            }></Line>
         </div>
       </div>
     </section>
