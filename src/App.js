@@ -1,12 +1,14 @@
 import './App.css';
 import Header from './components/Header'
-import Contents from './components/Contents'
+import AccGraph from './components/AccGraph'
+import DailyGraph from './components/DailyGraph';
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Contents></Contents>
+      <AccGraph></AccGraph>
+      <DailyGraph></DailyGraph>
     </div>
   );
 }

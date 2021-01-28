@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react'
 import { Bar, Line } from 'react-chartjs-2'
 import axios from 'axios'
 
-const Contents = () => {
-  // useState로 [↓state명, ↓ 세팅메서드 정의]
-  const [confirmedData, setconfirmedData] = useState({}) 
+const DailyGraph = () => {
+   const [dailyConfirmedData, setDailyConfirmedData] = useState({}) 
   
-
   useEffect(() => {
   
     // 이벤트가 들어감
@@ -59,8 +57,8 @@ const Contents = () => {
         return accDate;
       });
       
-      setconfirmedData({
-        labels, 
+      setDailyConfirmedData({
+        labels,
         datasets: [
           {
             label: "국내 일별 확진자",
@@ -70,18 +68,16 @@ const Contents = () => {
           }
         ]  
       });     
-    })   
-    
+    })       
     fetchEvents();   
-
   })
 
   return (
     <section>
-      <h2>국내 코로나 현황</h2>
+      <h2>일별 확진자 현황</h2>
       <div className="contents">
         <div>
-            <Bar data={confirmedData} options={
+            <Bar data={dailyConfirmedData} options={
               {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},
               {legend:{display:true, position:"bottom"}}
             }></Bar>
@@ -91,4 +87,4 @@ const Contents = () => {
   )
 }
 
-export default Contents
+export default DailyGraph
