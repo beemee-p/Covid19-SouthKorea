@@ -7,8 +7,12 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <AccGraph></AccGraph>
-      <DailyGraph></DailyGraph>
+      <section>
+        <div className="contents">
+          <AccGraph></AccGraph>
+          <DailyGraph></DailyGraph>
+        </div>
+      </section>
     </div>
   );
 }

@@ -17,17 +17,32 @@ const DailyGraph = () => {
     const makeData = (items =>{             
       
       // 누적확진자 수 배열
-      const arr = items.map(item =>{                   
-        return item.Confirmed; 
-      });
-      
-      // 일별확진자 배열   
-      const curArr = new Array();
+      const arr = items.map(item=> {
+        
+        // const currentDate = new Date(item.Date);
+        // const year = currentDate.getFullYear();
+        // const month = currentDate.getMonth();
+        // const date = currentDate.getDate();
+        //console.log(currentDate);
+        
+        // const confirmed = item.Confirmed;
+        // const curDate = item.Date;   
+        
+        // 누적확진자 날짜와 확진자 수 
+        // const accObj = {}
+        // accObj[item.Date] = item.Confirmed;
 
+        return item.Confirmed;
+      });     
+      console.log(arr);
+
+      // 일별확진자 배열 
+      const curArr = new Array();
       for(var i=1; i<arr.length; i++){        
-        curArr[i] = arr[i] - arr[i-1];             
-      }          
-      
+        curArr[i] = arr[i] - arr[i-1];           
+      }   
+      console.log(curArr);
+
       // 시작날짜 + 하루씩 추가 되는 배열생성 메소드 
       function getDateRangeData(param1){ 
         const res_day = [];
@@ -41,7 +56,7 @@ const DailyGraph = () => {
 
           var date = startDate.getDate();
           date = date < 10 ? '0'+date : date;
-
+          
           var res_day2 = res_day.concat(startDate.getFullYear() + '-' + month + '-' +  date);         
           startDate.setDate(startDate.getDate() + 1);
         }
@@ -49,9 +64,8 @@ const DailyGraph = () => {
       }
       const startDate = "2020-01-22";
       const accDate = getDateRangeData(startDate);       
-     
-      console.log(accDate);
-
+   
+      
       // 그래프 레이블
       const labels = curArr.map(a =>{         
         return accDate;
@@ -73,17 +87,16 @@ const DailyGraph = () => {
   })
 
   return (
-    <section>
+    <div>
       <h2>일별 확진자 현황</h2>
-      <div className="contents">
-        <div>
-            <Bar data={dailyConfirmedData} options={
-              {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},
-              {legend:{display:true, position:"bottom"}}
-            }></Bar>
-        </div>
-      </div>
-    </section>
+      <div>
+          <Bar data={dailyConfirmedData} options={
+            {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},
+            {legend:{display:true, position:"bottom"}}
+          }></Bar>
+      </div>     
+    </div>        
+
   )
 }
 

@@ -5,7 +5,6 @@ import axios from 'axios'
 const AccGraph = () => {
   // useState로 [↓state명, ↓ 세팅메서드 정의]
   const [confirmedData, setconfirmedData] = useState({}) 
-  const [dailyConfirmedData, setDailyConfirmedData] = useState({}) 
 
   useEffect(() => {
     // 이벤트가 들어감
@@ -80,18 +79,15 @@ const AccGraph = () => {
   })
 
   return (
-    <section>
-      <h2>누적 확진자 현황</h2>
-      <div className="contents">
-        <div>
-            <Line data={confirmedData} options={
-              {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},
-              {legend:{display:true, position:"bottom"}}
-            }></Line>
-           
-        </div>
-      </div>
-    </section>
+    <div>
+      <h2>누적 확진자 현황</h2>     
+      <div>
+          <Line data={confirmedData} options={
+            {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},
+            {legend:{display:true, position:"bottom"}}
+          }></Line>         
+      </div>   
+    </div>        
   )
 }
 
