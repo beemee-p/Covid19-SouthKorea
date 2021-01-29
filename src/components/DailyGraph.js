@@ -15,60 +15,44 @@ const DailyGraph = () => {
     }
     
     const makeData = (items =>{             
-      
-      // 누적확진자 수 배열
-      const arr = items.map(item=> {
-        
-        // const currentDate = new Date(item.Date);
-        // const year = currentDate.getFullYear();
-        // const month = currentDate.getMonth();
-        // const date = currentDate.getDate();
-        //console.log(currentDate);
-        
-        // const confirmed = item.Confirmed;
-        // const curDate = item.Date;   
-        
-        // 누적확진자 날짜와 확진자 수 
-        // const accObj = {}
-        // accObj[item.Date] = item.Confirmed;
 
+      // 누적확진자 수 배열
+      const arr = items.map(item => {               
         return item.Confirmed;
       });     
-      console.log(arr);
 
-      // 일별확진자 배열 
-      const curArr = new Array();
-      for(var i=1; i<arr.length; i++){        
-        curArr[i] = arr[i] - arr[i-1];           
-      }   
-      console.log(curArr);
+      // 확진 date 배열 
+      const arr2 = items.map(x =>{ 
+        return x.Date;
+      });
 
-      // 시작날짜 + 하루씩 추가 되는 배열생성 메소드 
-      function getDateRangeData(param1){ 
-        const res_day = [];
-        const startDate = new Date(param1);
-        const today = new Date();   
-
-        while(startDate.getTime() <= today.getTime()){
-          
-          var month = (startDate.getMonth()+1);
-          month = month < 10 ? '0'+month : month;
-
-          var date = startDate.getDate();
-          date = date < 10 ? '0'+date : date;
-          
-          var res_day2 = res_day.concat(startDate.getFullYear() + '-' + month + '-' +  date);         
-          startDate.setDate(startDate.getDate() + 1);
-        }
-        return res_day2;
+      //일별확진자 수 배열
+      const covid = new Array();
+     
+      for(var i=0; i<arr.length; i++){        
+        var vo = new Object();
+        vo.date = arr2[i];
+        vo.count = arr[i] - arr[i-1];
+        covid.push(vo);
       }
-      const startDate = "2020-01-22";
-      const accDate = getDateRangeData(startDate);       
-   
+      console.log(covid);
       
       // 그래프 레이블
-      const labels = curArr.map(a =>{         
-        return accDate;
+      const labels = covid.map(a =>{         
+        
+          var date = new Date(a.date);  //입력 파라메터로 Date 객체를 생성합니다
+          var yyyy = date.getFullYear().toString(); // '연도'를 뽑아내고
+          var mm = (date.getMonth()+1).toString(); // '월'을 뽑아내고
+          var dd = date.getDate().toString(); // '일'을 뽑아냅니다
+        
+          var Str = '';
+        
+          //스트링 배열의 앞자리가 두자리 수가 아닌 한자리 수일 경우 
+          // 두자리로 표시하기 위해 0을 채웁니다(lpad 와 동일한 역할)
+          // (ex : '1' -> '01' )  
+          Str += yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' +(dd[1] ? dd : '0' + dd[0]);
+         
+        return Str;
       });
       
       setDailyConfirmedData({
@@ -78,7 +62,7 @@ const DailyGraph = () => {
             label: "국내 일별 확진자",
             backgroundColor: "salmon",
             fill: false, // 그래프 색을 채우겠느냐
-            data: curArr.map(a => a) // 한줄짜리인경우 {return}을 안써도 된다.
+            data: covid.map(a => a.count) // 한줄짜리인경우 {return}을 안써도 된다.
           }
         ]  
       });     
