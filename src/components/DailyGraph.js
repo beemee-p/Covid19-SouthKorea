@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Bar, Line } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 import axios from 'axios'
 
 const DailyGraph = () => {
@@ -27,7 +27,7 @@ const DailyGraph = () => {
       });
 
       //일별확진자 수 배열
-      const covid = new Array();
+      const covid = [];
      
       for(var i=0; i<arr.length; i++){        
         var vo = new Object();
@@ -68,7 +68,7 @@ const DailyGraph = () => {
       });     
     })       
     fetchEvents();   
-  })
+  }, [])
 
   return (
     <div>
@@ -84,4 +84,4 @@ const DailyGraph = () => {
   )
 }
 
-export default DailyGraph
+export default DailyGraph;

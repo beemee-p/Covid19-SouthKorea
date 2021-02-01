@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header'
 import AccGraph from './components/AccGraph'
 import DailyGraph from './components/DailyGraph';
+import Article from './components/Article';
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <section>
         <div className="contents">
           <AccGraph></AccGraph>
-          <DailyGraph></DailyGraph>
+          <DailyGraph></DailyGraph>       
         </div>
+        <Article></Article>
       </section>
     </div>
   );
