@@ -2,18 +2,19 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const Article = () => {
-  
-  const [articles, setArticles] = useState({}); 
-  //const [loading, setLoading] = useState(false);
+
+  const [articles, setArticles] = useState(); 
+  // const [loading, setLoading] = useState(false);
   
   useEffect(() => {
     const fetchEvents = async ()=>{ 
+      //client 키 
       const client_id = 'ICVA0EEW_FBpV_N5tLOw';
       const client_secret = 'pbG8d9DZ3a';
       
-      //setLoading(true);
+      // setLoading(true);
       try {
-        const res = await axios.get("https://openapi.naver.com/v1/search/news.json", { 
+        const res = await axios.get("/v1/search/news.json", { 
           params:{
             query: '코로나확진자',
             display: 20
@@ -24,29 +25,29 @@ const Article = () => {
           } 
         });
         setArticles(res.data);
+        
       } catch (e) {
         console.log(e);
       }
-     //setLoading(false);
+    //  setLoading(false);
+    console.log(articles, "통과"); 
+   
+    
     };
-    fetchEvents();
+    fetchEvents();  
+   
   }, []);
 
   return (
     <div>
-      <h2>코로나 관련 뉴스</h2>
-      <ul className="news">
-        {/* {articles.map((item) => (
-          <li>
-            <a target="_blank" href={item.link}>
-              {item.title}
-            </a>
-            <p>{item.description}</p>
-          </li>
-        ))} */}
-      </ul>
+      <h2>코로나 관련 뉴스</h2> 
+      <div className="news">   
+        {articles && articles.items.map(item => {
+          return <p><a href={item.link}>{item.title}</a></p>;
+        })}
+      </div>
     </div>
-  )
+  );
 }
 
 export default Article;
