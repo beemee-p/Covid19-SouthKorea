@@ -2,11 +2,11 @@
 COVID-19 daily cases dashboard in South Korea 
 * Total daily cases as the top part of a website
 * Daily cases visiable statistics via graph
-* Scraping Web Articles related 'COVID' keyword Using NewsAPI
+* Scraping Web Articles related 'COVID' keyword Using Naver NewsAPI
 
-Working in progress :wrench: (as mock-up page below)
+Work completed. Here's a screenshot for your understanding.
+![covid19_dashboard](https://user-images.githubusercontent.com/72956452/108112140-05a75a80-70d9-11eb-8d9b-38c6ab66c989.jpg)
 
-![image](https://user-images.githubusercontent.com/72956452/105278009-f8857180-5be7-11eb-8a48-da5dae66988f.png)
 ***
 ## skills 
 * Client-side: React.js, HTML, CSS, JavaScript 
