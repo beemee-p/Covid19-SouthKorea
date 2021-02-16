@@ -71,7 +71,7 @@ const DailyGraph = () => {
   }, [])
 
   return (
-    <div>
+    <div className="graph">
       <h2>일별 확진자 현황</h2>
       <div>
           <Bar data={dailyConfirmedData} options={

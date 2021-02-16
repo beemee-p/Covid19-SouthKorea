@@ -79,8 +79,8 @@ const AccGraph = () => {
   }, [])
 
   return (
-    <div>
-      <h2>누적 확진자 현황</h2>     
+    <div className="graph">
+      <h2>누적 확진자 현황</h2>         
       <div>
           <Line data={confirmedData} options={
             {title:{display:true, text:"누적 확진자 현황", fontSize: 16}},

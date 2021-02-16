@@ -1,0 +1,28 @@
+.news {               /* 뉴스 전체영역 */
+  margin: 3vh;  
+}
+.grid-container {     /* 뉴스기사 영역 */
+  display: inline-grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin: 30px;
+  padding: 10px;
+}
+
+.grid-item {          /* 뉴스기사 각각 */
+  margin: 2.5px;
+  padding: 20%;
+  font-size: 15px;
+  text-align: center;
+  background-color: powderblue;
+}
+.grid-item:hover {    /* 뉴스기사 마우스오버 */
+  opacity: 0.5;
+}
+
+a {                   /* 뉴스 텍스트링크 */
+  text-decoration: none;
+  color: black;
+}
+
+
+

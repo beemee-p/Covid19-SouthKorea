@@ -1,0 +1,20 @@
+.header {               /* 헤더 */
+    padding: 1rem 2rem;
+    background-color: #398A8F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1{
+    color: white;
+  }
+  .header select {
+    height: 30px;
+    width: 140px;
+    border-radius: 5px;
+    border: none;
+  }
+  img {
+    height: 50px;
+
+  }
