@@ -3,7 +3,7 @@ COVID-19 daily cases dashboard in South Korea
 * Total daily cases as the top part of a website
 * Daily cases visiable statistics via graph
 * Scraping Web Articles related 'COVID' keyword Using Naver NewsAPI
-* color boxes of display changes randomly. (when refresh)
+* The article boxes change colors randomly when refresh.
 
 Here's the dashboard screenshot.
 
