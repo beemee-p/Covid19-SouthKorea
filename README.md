@@ -7,7 +7,7 @@ COVID-19 daily cases dashboard in South Korea
 
 Here's the dashboard screenshot.
 
-![covid19_dashboard](https://user-images.githubusercontent.com/72956452/108112140-05a75a80-70d9-11eb-8d9b-38c6ab66c989.jpg)
+![covid19_dashboard_add](https://user-images.githubusercontent.com/72956452/109754289-13a3c200-7c27-11eb-8418-2d3b687462f0.jpg)
 
 ***
 ## skills 
